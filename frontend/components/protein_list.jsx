@@ -1,19 +1,32 @@
 import React from 'react';
 import defaults from '../protein_list';
 
-const ProteinList = () => {
-  const proteinList = defaults.map (protein => (
-    <li key={protein} className="protein-list">{protein}</li>
-  ));
+class ProteinList extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <nav>
-      <ul>
-        { proteinList }
-      </ul>
-    </nav>
-  );
-};
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    const id = e.currentTarget.innerHTML;
+    this.props.requestProtein(id);
+  }
+
+  render() {
+    const proteinList = defaults.map (protein => (
+      <li key={protein} className="protein-list" onClick={this.handleClick}>{protein}</li>
+    ));
+
+    return (
+      <nav>
+        <ul>
+          { proteinList }
+        </ul>
+      </nav>
+    );
+  }
+}
 
 
 export default ProteinList;

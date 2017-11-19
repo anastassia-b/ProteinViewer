@@ -21307,9 +21307,9 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _protein_list = __webpack_require__(76);
+var _protein_list_container = __webpack_require__(173);
 
-var _protein_list2 = _interopRequireDefault(_protein_list);
+var _protein_list_container2 = _interopRequireDefault(_protein_list_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21318,7 +21318,7 @@ var Main = function Main() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_protein_list2.default, null)
+    _react2.default.createElement(_protein_list_container2.default, null)
   );
 };
 
@@ -21349,6 +21349,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
@@ -21359,25 +21361,57 @@ var _protein_list2 = _interopRequireDefault(_protein_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ProteinList = function ProteinList() {
-  var proteinList = _protein_list2.default.map(function (protein) {
-    return _react2.default.createElement(
-      'li',
-      { key: protein, className: 'protein-list' },
-      protein
-    );
-  });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  return _react2.default.createElement(
-    'nav',
-    null,
-    _react2.default.createElement(
-      'ul',
-      null,
-      proteinList
-    )
-  );
-};
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProteinList = function (_React$Component) {
+  _inherits(ProteinList, _React$Component);
+
+  function ProteinList(props) {
+    _classCallCheck(this, ProteinList);
+
+    var _this = _possibleConstructorReturn(this, (ProteinList.__proto__ || Object.getPrototypeOf(ProteinList)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(ProteinList, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      var id = e.currentTarget.innerHTML;
+      this.props.requestProtein(id);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var proteinList = _protein_list2.default.map(function (protein) {
+        return _react2.default.createElement(
+          'li',
+          { key: protein, className: 'protein-list', onClick: _this2.handleClick },
+          protein
+        );
+      });
+
+      return _react2.default.createElement(
+        'nav',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          proteinList
+        )
+      );
+    }
+  }]);
+
+  return ProteinList;
+}(_react2.default.Component);
 
 exports.default = ProteinList;
 
@@ -24370,6 +24404,37 @@ function isIterateeCall(value, index, object) {
 
 module.exports = isIterateeCall;
 
+
+/***/ }),
+/* 173 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(40);
+
+var _protein_list = __webpack_require__(76);
+
+var _protein_list2 = _interopRequireDefault(_protein_list);
+
+var _protein_actions = __webpack_require__(77);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    requestProtein: function requestProtein(id) {
+      return dispatch((0, _protein_actions.requestProtein)(id));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_protein_list2.default);
 
 /***/ })
 /******/ ]);

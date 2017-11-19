@@ -1,11 +1,11 @@
 import React from 'react';
-import ProteinList from './protein_list';
+import ProteinListContainer from './protein_list_container';
 
 const Main = () => {
-
+  
   return (
     <div>
-      <ProteinList />
+      <ProteinListContainer />
     </div>
   );
 };
