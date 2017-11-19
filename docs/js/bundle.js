@@ -21295,13 +21295,59 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _protein_list = __webpack_require__(75);
+var _protein_list = __webpack_require__(76);
 
 var _protein_list2 = _interopRequireDefault(_protein_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_protein_list2.default, null)
+  );
+};
+
+exports.default = Main;
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var defaults = ['P01096', 'P0AG67', 'P04637', 'P02549', 'O95318'];
+
+exports.default = defaults;
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _protein_list = __webpack_require__(75);
+
+var _protein_list2 = _interopRequireDefault(_protein_list);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProteinList = function ProteinList() {
   var proteinList = _protein_list2.default.map(function (protein) {
     return _react2.default.createElement(
       'li',
@@ -21321,21 +21367,7 @@ var Main = function Main() {
   );
 };
 
-exports.default = Main;
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var defaults = ['P01096', 'P0AG67', 'P04637', 'P02549', 'O95318'];
-
-exports.default = defaults;
+exports.default = ProteinList;
 
 /***/ })
 /******/ ]);
