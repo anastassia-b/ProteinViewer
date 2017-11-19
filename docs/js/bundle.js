@@ -84,16 +84,26 @@ var _store = __webpack_require__(69);
 
 var _store2 = _interopRequireDefault(_store);
 
+var _main = __webpack_require__(76);
+
+var _main2 = _interopRequireDefault(_main);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Root = function Root(_ref) {
+  var store = _ref.store;
+  return _react2.default.createElement(
+    _reactRedux.Provider,
+    { store: store },
+    _react2.default.createElement(_main2.default, null)
+  );
+};
 
 document.addEventListener('DOMContentLoaded', function () {
   var store = (0, _store2.default)();
+  window.getState = store.getState;
   var root = document.getElementById('root');
-  _reactDom2.default.render(_react2.default.createElement(
-    'h1',
-    null,
-    'Protein Viewer'
-  ), root);
+  _reactDom2.default.render(_react2.default.createElement(Root, { store: store }), root);
 });
 
 /***/ }),
@@ -21235,7 +21245,69 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(49);
 
-exports.default = (0, _redux.combineReducers)({});
+var _proteins_reducer = __webpack_require__(75);
+
+var _proteins_reducer2 = _interopRequireDefault(_proteins_reducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _redux.combineReducers)({
+  proteins: _proteins_reducer2.default
+});
+
+/***/ }),
+/* 73 */,
+/* 74 */,
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var proteinsReducer = function proteinsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+exports.default = proteinsReducer;
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Main = function Main() {
+  return _react2.default.createElement(
+    'h1',
+    null,
+    'Protein Viewer'
+  );
+};
+
+exports.default = Main;
 
 /***/ })
 /******/ ]);
