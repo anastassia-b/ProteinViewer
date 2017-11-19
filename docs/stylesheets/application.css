@@ -1,0 +1,59 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1;
+  color: black;
+  background: white; }
+
+ol, ul {
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: midnightblue;
+  color: white;
+  padding: 10px; }
+  header h1 {
+    font-size: 42px; }
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  height: 100%; }
+
+nav {
+  display: flex;
+  height: 100%; }
+  nav > ul {
+    padding: 20px;
+    width: 300px;
+    overflow: scroll; }
+    nav > ul > li {
+      font-size: 16px; }
+      nav > ul > li:active {
+        background-color: red; }
+
+.protein-list {
+  padding: 20px; }
+
+/*# sourceMappingURL=application.css.map */

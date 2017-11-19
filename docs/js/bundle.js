@@ -21307,19 +21307,14 @@ var Main = function Main() {
   var proteinList = _protein_list2.default.map(function (protein) {
     return _react2.default.createElement(
       'li',
-      { key: protein },
+      { key: protein, className: 'protein-list' },
       protein
     );
   });
 
   return _react2.default.createElement(
-    'div',
+    'nav',
     null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Protein Viewer'
-    ),
     _react2.default.createElement(
       'ul',
       null,
