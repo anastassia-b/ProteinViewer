@@ -21297,17 +21297,52 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _protein_list = __webpack_require__(77);
+
+var _protein_list2 = _interopRequireDefault(_protein_list);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
+  var proteinList = _protein_list2.default.map(function (protein) {
+    return _react2.default.createElement(
+      'li',
+      { key: protein },
+      protein
+    );
+  });
+
   return _react2.default.createElement(
-    'h1',
+    'div',
     null,
-    'Protein Viewer'
+    _react2.default.createElement(
+      'h1',
+      null,
+      'Protein Viewer'
+    ),
+    _react2.default.createElement(
+      'ul',
+      null,
+      proteinList
+    )
   );
 };
 
 exports.default = Main;
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var defaults = ['P01096', 'P0AG67', 'P04637', 'P02549', 'O95318'];
+
+exports.default = defaults;
 
 /***/ })
 /******/ ]);

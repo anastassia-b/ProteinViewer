@@ -1,8 +1,18 @@
 import React from 'react';
+import defaults from '../protein_list';
 
 const Main = () => {
+  const proteinList = defaults.map (protein => (
+    <li key={protein}>{protein}</li>
+  ));
+
   return (
-    <h1>Protein Viewer</h1>
+    <div>
+      <h1>Protein Viewer</h1>
+      <ul>
+        { proteinList }
+      </ul>
+    </div>
   );
 };
 
