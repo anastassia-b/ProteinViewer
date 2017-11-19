@@ -46,7 +46,7 @@ nav {
   height: 100%; }
   nav > ul {
     padding: 20px;
-    width: 300px;
+    width: 200px;
     overflow: scroll; }
     nav > ul > li {
       font-size: 16px; }
