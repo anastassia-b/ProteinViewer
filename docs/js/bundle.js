@@ -21248,10 +21248,15 @@ var _proteins_reducer = __webpack_require__(73);
 
 var _proteins_reducer2 = _interopRequireDefault(_proteins_reducer);
 
+var _ui_reducer = __webpack_require__(183);
+
+var _ui_reducer2 = _interopRequireDefault(_ui_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-  proteins: _proteins_reducer2.default
+  proteins: _proteins_reducer2.default,
+  ui: _ui_reducer2.default
 });
 
 // TODO: give a currentProtein slice of state.
@@ -24523,10 +24528,24 @@ var ProteinView = function (_React$Component) {
     value: function render() {
       var protein = this.props.protein;
 
+      if (protein.length === 0) {
+        return _react2.default.createElement(
+          'main',
+          null,
+          'fetching protein information...'
+        );
+      }
+
       return _react2.default.createElement(
         'main',
         null,
-        protein
+        _react2.default.createElement(
+          'div',
+          null,
+          protein[0],
+          _react2.default.createElement('br', null),
+          protein[1]
+        )
       );
     }
   }]);
@@ -24555,7 +24574,12 @@ var _values2 = _interopRequireDefault(_values);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var selectProtein = exports.selectProtein = function selectProtein(state) {
-  return ['protein info'];
+  var currentProtein = state.ui.currentProtein;
+  if (currentProtein) {
+    return (0, _values2.default)(state.proteins[currentProtein]);
+  } else {
+    return [];
+  }
 };
 
 /***/ }),
@@ -24740,6 +24764,42 @@ var nativeKeys = overArg(Object.keys, Object);
 
 module.exports = nativeKeys;
 
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _protein_actions = __webpack_require__(77);
+
+var _merge = __webpack_require__(106);
+
+var _merge2 = _interopRequireDefault(_merge);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var proteinsReducer = function proteinsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _protein_actions.RECEIVE_PROTEIN:
+      var protein = action.protein;
+      return (0, _merge2.default)({}, state, { currentProtein: protein.accession });
+    default:
+      return state;
+  }
+};
+
+exports.default = proteinsReducer;
 
 /***/ })
 /******/ ]);

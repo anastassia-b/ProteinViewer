@@ -8,9 +8,21 @@ class ProteinView extends React.Component {
   render() {
     const protein = this.props.protein;
 
+    if (protein.length === 0) {
+      return (
+        <main>
+          fetching protein information...
+        </main>
+      );
+    }
+
     return (
       <main>
-        { protein }
+        <div>
+          { protein[0]}
+          <br/>
+          { protein[1]}
+        </div>
       </main>
     );
   }
