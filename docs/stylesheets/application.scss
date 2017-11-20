@@ -23,6 +23,11 @@ body {
   height: 100%;
 }
 
+.nav-main {
+  display: flex;
+  flex-direction: row;
+}
+
 nav {
   display: flex;
   height: 100%;
@@ -48,5 +53,9 @@ nav {
 }
 
 .protein-list {
+  padding: 20px;
+}
+
+main {
   padding: 20px;
 }

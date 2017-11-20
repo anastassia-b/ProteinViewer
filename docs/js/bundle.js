@@ -21323,7 +21323,7 @@ var Main = function Main() {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'nav-main' },
     _react2.default.createElement(_protein_list_container2.default, null),
     _react2.default.createElement(_protein_view_container2.default, null)
   );

@@ -5,7 +5,7 @@ import ProteinViewContainer from './protein_view_container';
 const Main = () => {
 
   return (
-    <div>
+    <div className="nav-main">
       <ProteinListContainer />
       <ProteinViewContainer />
     </div>
