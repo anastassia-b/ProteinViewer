@@ -31,9 +31,12 @@ body {
 nav {
   display: flex;
   height: 100%;
+  padding: 20px;
+  background-color: floralwhite;
+  // border: 1px solid midnightblue;
 
   > ul {
-    padding: 20px;
+    // background-color: white;
     width: 200px;
     overflow: scroll;
 
@@ -58,4 +61,11 @@ nav {
 
 main {
   padding: 20px;
+  flex: 3;
+  background-color: azure;
+  // border: 1px solid midnightblue;
+
+  .protein-view {
+    padding: 20px;
+  }
 }

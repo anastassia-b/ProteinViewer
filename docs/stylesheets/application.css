@@ -47,9 +47,10 @@ body {
 
 nav {
   display: flex;
-  height: 100%; }
+  height: 100%;
+  padding: 20px;
+  background-color: floralwhite; }
   nav > ul {
-    padding: 20px;
     width: 200px;
     overflow: scroll; }
     nav > ul > li {
@@ -63,6 +64,11 @@ nav {
   padding: 20px; }
 
 main {
-  padding: 20px; }
+  padding: 20px;
+  flex: 3;
+  max-width: 100vw;
+  background-color: azure; }
+  main .protein-view {
+    padding: 20px; }
 
 /*# sourceMappingURL=application.css.map */
