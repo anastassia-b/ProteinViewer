@@ -20,18 +20,20 @@ header {
 body {
   font-family: sans-serif;
   font-size: 14px;
-  height: 100%;
+  margin: 80px;
+  border: 2px solid black;
+  // height: 100%;
 }
 
 .nav-main {
   display: flex;
   flex-direction: row;
+  height: 75vh;
 }
 
 nav {
-  display: flex;
+  // display: flex;
   height: 100%;
-  padding: 20px;
   background-color: floralwhite;
   // border: 1px solid midnightblue;
 
