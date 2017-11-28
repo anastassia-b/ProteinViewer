@@ -30,7 +30,7 @@ html {
 header {
   display: flex;
   justify-content: center;
-  background-color: midnightblue;
+  background-color: #5D5F71;
   color: white;
   padding: 20px; }
   header h1 {
@@ -40,7 +40,7 @@ body {
   font-family: sans-serif;
   font-size: 14px;
   margin: 80px;
-  border: 2px solid black; }
+  border: 2px solid #5D5F71; }
 
 .nav-main {
   display: flex;
@@ -49,7 +49,7 @@ body {
 
 nav {
   height: 100%;
-  background-color: floralwhite; }
+  background-color: #FFDD4A; }
   nav > ul {
     width: 200px;
     overflow: scroll; }
@@ -58,16 +58,14 @@ nav {
       nav > ul > li:hover {
         background-color: #ececec; }
       nav > ul > li:active {
-        background-color: red; }
+        background-color: #FE9000; }
 
 .protein-list {
-  padding: 20px; }
+  padding: 30px; }
 
 main {
-  padding: 20px;
+  padding: 30px;
   flex: 3;
   background-color: azure; }
-  main .protein-view {
-    padding: 20px; }
 
 /*# sourceMappingURL=application.css.map */

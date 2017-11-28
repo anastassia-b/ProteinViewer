@@ -8,7 +8,7 @@ html {
 header {
   display: flex;
   justify-content: center;
-  background-color: midnightblue;
+  background-color: $grey;
   color: white;
   padding: 20px;
 
@@ -21,7 +21,7 @@ body {
   font-family: sans-serif;
   font-size: 14px;
   margin: 80px;
-  border: 2px solid black;
+  border: 2px solid $grey;
   // height: 100%;
 }
 
@@ -34,7 +34,7 @@ body {
 nav {
   // display: flex;
   height: 100%;
-  background-color: floralwhite;
+  background-color: $yellow;
   // border: 1px solid midnightblue;
 
   > ul {
@@ -50,7 +50,7 @@ nav {
       }
 
       &:active {
-        background-color: red;
+        background-color: $orange;
       }
     }
   }
@@ -58,16 +58,16 @@ nav {
 }
 
 .protein-list {
-  padding: 20px;
+  padding: 30px;
 }
 
 main {
-  padding: 20px;
+  padding: 30px;
   flex: 3;
   background-color: azure;
   // border: 1px solid midnightblue;
 
   .protein-view {
-    padding: 20px;
+    // padding: 20px;
   }
 }
