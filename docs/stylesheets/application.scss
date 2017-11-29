@@ -19,7 +19,7 @@ header {
 
 body {
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   margin: 80px;
   border: 2px solid $grey;
   // height: 100%;
@@ -47,6 +47,7 @@ nav {
 
       &:hover {
         background-color: $light-grey;
+        cursor: pointer;
       }
 
       &:active {
@@ -69,5 +70,8 @@ main {
 
   .protein-view {
     // padding: 20px;
+    p {
+      padding-bottom: 10px;
+    }
   }
 }

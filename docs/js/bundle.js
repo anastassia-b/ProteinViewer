@@ -24605,24 +24605,35 @@ var ProteinView = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'protein-view' },
-            'accession: ',
-            accession,
-            ' ',
-            _react2.default.createElement('br', null),
-            'id: ',
-            id,
-            ' ',
-            _react2.default.createElement('br', null),
-            'length: ',
-            sequence.length,
-            ' ',
-            _react2.default.createElement('br', null),
-            'mass: ',
-            sequence.mass,
-            ' ',
-            _react2.default.createElement('br', null),
-            'sequence: ',
-            _react2.default.createElement('br', null)
+            _react2.default.createElement(
+              'p',
+              null,
+              'accession: ',
+              accession
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'id: ',
+              id
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'length: ',
+              sequence.length
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'mass: ',
+              sequence.mass
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'sequence: '
+            )
           )
         );
       }

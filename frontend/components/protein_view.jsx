@@ -41,11 +41,11 @@ class ProteinView extends React.Component {
       return (
         <main>
           <div className="protein-view">
-            accession: { accession } <br/>
-            id: { id } <br/>
-            length: { sequence.length } <br/>
-            mass: { sequence.mass } <br/>
-            sequence: <br/>
+            <p>accession: { accession }</p>
+            <p>id: { id }</p>
+            <p>length: { sequence.length }</p>
+            <p>mass: { sequence.mass }</p>
+            <p>sequence: </p>
           </div>
         </main>
       );

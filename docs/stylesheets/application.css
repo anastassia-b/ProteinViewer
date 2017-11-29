@@ -38,7 +38,7 @@ header {
 
 body {
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   margin: 80px;
   border: 2px solid #5D5F71; }
 
@@ -56,7 +56,8 @@ nav {
     nav > ul > li {
       font-size: 16px; }
       nav > ul > li:hover {
-        background-color: #ececec; }
+        background-color: #ececec;
+        cursor: pointer; }
       nav > ul > li:active {
         background-color: #FE9000; }
 
@@ -67,5 +68,7 @@ main {
   padding: 30px;
   flex: 3;
   background-color: azure; }
+  main .protein-view p {
+    padding-bottom: 10px; }
 
 /*# sourceMappingURL=application.css.map */
