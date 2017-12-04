@@ -24635,6 +24635,11 @@ var ProteinView = function (_React$Component) {
             "div",
             { className: "protein-view" },
             _react2.default.createElement(
+              "h4",
+              null,
+              protein.name
+            ),
+            _react2.default.createElement(
               "p",
               null,
               "Accession: ",
@@ -24700,12 +24705,21 @@ var selectProteinInfo = exports.selectProteinInfo = function selectProteinInfo(s
 
   var protein = state.proteins[accession];
   var sequence = protein.sequence;
+  var name = protein.protein.alternativeName;
+
+  if (name) {
+    name = name[0].fullName.value;
+  } else {
+    name = protein.protein.recommendedName.fullName.value;
+  }
+
   return {
     accession: accession,
     id: protein.id,
     length: sequence.length,
     mass: sequence.mass,
-    sequence: sequence.sequence
+    sequence: sequence.sequence,
+    name: name
   };
 };
 

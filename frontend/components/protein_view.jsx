@@ -22,6 +22,7 @@ class ProteinView extends React.Component {
       return (
         <main>
           <div className="protein-view">
+            <h4>{ protein.name }</h4>
             <p>Accession: { protein.accession }</p>
             <p>Id: { protein.id }</p>
             <p>Length: { protein.length }</p>

@@ -81,6 +81,10 @@ html {
     padding: 30px;
     flex: 3;
     background-color: azure; }
+    .nav-main main .protein-view h4 {
+      font-size: 18px;
+      font-weight: bold;
+      padding-bottom: 20px; }
     .nav-main main .protein-view p {
       padding-bottom: 10px; }
     .nav-main main .protein-view textarea {
