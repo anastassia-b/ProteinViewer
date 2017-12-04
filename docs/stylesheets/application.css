@@ -26,54 +26,49 @@ ol, ul {
 
 html {
   height: 100%; }
-
-header {
-  display: flex;
-  justify-content: center;
-  background-color: #5D5F71;
-  color: white;
-  padding: 20px; }
-  header h1 {
-    font-size: 42px; }
-
-body {
-  font-family: sans-serif;
-  font-size: 16px;
-  margin: 80px;
-  border: 2px solid #5D5F71; }
+  html header {
+    display: flex;
+    justify-content: center;
+    background-color: #5D5F71;
+    color: white;
+    padding: 20px; }
+    html header h1 {
+      font-size: 42px; }
+  html body {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 80px;
+    border: 2px solid #5D5F71;
+    min-width: 450px; }
 
 .nav-main {
   display: flex;
   flex-direction: row;
   height: 75vh; }
-
-nav {
-  height: 100%;
-  background-color: #FFDD4A; }
-  nav > ul {
-    width: 200px;
-    overflow: scroll; }
-    nav > ul > li {
-      font-size: 16px; }
-      nav > ul > li:hover {
-        background-color: #ececec;
-        cursor: pointer; }
-      nav > ul > li:active {
-        background-color: #FE9000; }
-
-.protein-list {
-  padding: 30px; }
-
-main {
-  padding: 30px;
-  flex: 3;
-  background-color: azure; }
-  main .protein-view p {
-    padding-bottom: 10px; }
-  main .protein-view textarea {
-    width: 95%;
-    height: 200px;
-    resize: none;
-    padding: 10px; }
+  .nav-main nav {
+    height: 100%;
+    background-color: #FFDD4A; }
+    .nav-main nav > ul {
+      width: 200px;
+      overflow: scroll; }
+      .nav-main nav > ul > li.protein-list {
+        font-size: 16px;
+        padding: 30px; }
+        .nav-main nav > ul > li.protein-list:hover {
+          background-color: #ececec;
+          cursor: pointer; }
+        .nav-main nav > ul > li.protein-list:active {
+          background-color: #FE9000; }
+  .nav-main main {
+    padding: 30px;
+    flex: 3;
+    background-color: azure; }
+    .nav-main main .protein-view p {
+      padding-bottom: 10px; }
+    .nav-main main .protein-view textarea {
+      width: 95%;
+      height: 200px;
+      resize: none;
+      padding: 10px; }
 
 /*# sourceMappingURL=application.css.map */
