@@ -5,18 +5,6 @@ class ProteinView extends React.Component {
     super(props);
   }
 
-  formatSequence(seq) {
-    let newSeq = "<div>";
-
-    for (let i=0; i <=seq.length; i = i + 20) {
-      newSeq += seq.slice(i, i+20);
-      newSeq += '<br/>';
-    }
-
-    newSeq += '</div>';
-    return newSeq;
-  }
-
   render() {
     const protein = this.props.protein;
 
@@ -24,7 +12,10 @@ class ProteinView extends React.Component {
       return (
         <main>
           <div className="protein-view">
-            fetching protein information...
+            <p>fetching protein information...</p>
+            <textarea className="sequence">
+              Protein Sequence
+            </textarea>
           </div>
         </main>
       );
@@ -34,9 +25,8 @@ class ProteinView extends React.Component {
       const accession = protein[0];
       const id = protein[1];
       const sequence = protein[13];
-      const newSeq = this.formatSequence(sequence.sequence);
-      console.log($.parseHTML(newSeq).innerText);
-      // $('.protein-view').append($.parseHTML(newSeq));
+      debugger;
+      const newSeq = sequence.sequence;
 
       return (
         <main>
@@ -46,6 +36,9 @@ class ProteinView extends React.Component {
             <p>length: { sequence.length }</p>
             <p>mass: { sequence.mass }</p>
             <p>sequence: </p>
+            <textarea className="sequence">
+              { newSeq }
+            </textarea>
           </div>
         </main>
       );
