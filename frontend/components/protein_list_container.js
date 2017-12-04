@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
 import ProteinList from './protein_list';
-import { requestProtein } from '../actions/protein_actions';
+import { selectProteins, selectProteinIds } from '../reducers/selectors';
+import { requestProtein, receiveProtein } from '../actions/protein_actions';
+
+const mapStateToProps = state => ({
+  proteins: state.proteins,
+  proteinIds: selectProteinIds(state)
+})
 
 const mapDispatchToProps = dispatch => ({
-  requestProtein: (id) => dispatch(requestProtein(id))
+  requestProtein: (id) => dispatch(requestProtein(id)),
+  receiveProtein: (protein) => dispatch(receiveProtein(protein))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ProteinList);

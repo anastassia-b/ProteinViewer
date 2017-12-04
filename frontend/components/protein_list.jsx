@@ -10,7 +10,15 @@ class ProteinList extends React.Component {
 
   handleClick(e) {
     const id = e.currentTarget.innerHTML;
-    this.props.requestProtein(id);
+    const exists = this.props.proteinIds.indexOf(id);
+
+    if (exists === -1) {
+      this.props.requestProtein(id);
+    } else {
+      console.log("Already in state!");
+      const protein = this.props.proteins[id];
+      this.props.receiveProtein(protein);
+    }
   }
 
   render() {

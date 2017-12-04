@@ -24388,19 +24388,31 @@ var _protein_list = __webpack_require__(173);
 
 var _protein_list2 = _interopRequireDefault(_protein_list);
 
+var _selectors = __webpack_require__(177);
+
 var _protein_actions = __webpack_require__(12);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    proteins: state.proteins,
+    proteinIds: (0, _selectors.selectProteinIds)(state)
+  };
+};
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     requestProtein: function requestProtein(id) {
       return dispatch((0, _protein_actions.requestProtein)(id));
+    },
+    receiveProtein: function receiveProtein(protein) {
+      return dispatch((0, _protein_actions.receiveProtein)(protein));
     }
   };
 };
 
-exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_protein_list2.default);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_protein_list2.default);
 
 /***/ }),
 /* 173 */
@@ -24447,7 +24459,15 @@ var ProteinList = function (_React$Component) {
     key: 'handleClick',
     value: function handleClick(e) {
       var id = e.currentTarget.innerHTML;
-      this.props.requestProtein(id);
+      var exists = this.props.proteinIds.indexOf(id);
+
+      if (exists === -1) {
+        this.props.requestProtein(id);
+      } else {
+        console.log("Already in state!");
+        var protein = this.props.proteins[id];
+        this.props.receiveProtein(protein);
+      }
     }
   }, {
     key: 'render',
@@ -24656,20 +24676,11 @@ exports.default = ProteinView;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.selectProteinInfo = exports.selectProtein = undefined;
-
-var _values = __webpack_require__(178);
-
-var _values2 = _interopRequireDefault(_values);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var selectProtein = exports.selectProtein = function selectProtein(state) {
-  var currentProtein = state.ui.currentProtein;
-  if (currentProtein) {
-    return (0, _values2.default)(state.proteins[currentProtein]);
-  } else {
+var selectProteinIds = exports.selectProteinIds = function selectProteinIds(state) {
+  if (state.proteins === undefined) {
     return [];
+  } else {
+    return Object.keys(state.proteins);
   }
 };
 
@@ -24689,189 +24700,6 @@ var selectProteinInfo = exports.selectProteinInfo = function selectProteinInfo(s
     sequence: sequence.sequence
   };
 };
-
-/***/ }),
-/* 178 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseValues = __webpack_require__(179),
-    keys = __webpack_require__(181);
-
-/**
- * Creates an array of the own enumerable string keyed property values of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property values.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.values(new Foo);
- * // => [1, 2] (iteration order is not guaranteed)
- *
- * _.values('hi');
- * // => ['h', 'i']
- */
-function values(object) {
-  return object == null ? [] : baseValues(object, keys(object));
-}
-
-module.exports = values;
-
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayMap = __webpack_require__(180);
-
-/**
- * The base implementation of `_.values` and `_.valuesIn` which creates an
- * array of `object` property values corresponding to the property names
- * of `props`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array} props The property names to get values for.
- * @returns {Object} Returns the array of property values.
- */
-function baseValues(object, props) {
-  return arrayMap(props, function(key) {
-    return object[key];
-  });
-}
-
-module.exports = baseValues;
-
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports) {
-
-/**
- * A specialized version of `_.map` for arrays without support for iteratee
- * shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the new mapped array.
- */
-function arrayMap(array, iteratee) {
-  var index = -1,
-      length = array == null ? 0 : array.length,
-      result = Array(length);
-
-  while (++index < length) {
-    result[index] = iteratee(array[index], index, array);
-  }
-  return result;
-}
-
-module.exports = arrayMap;
-
-
-/***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeKeys = __webpack_require__(59),
-    baseKeys = __webpack_require__(182),
-    isArrayLike = __webpack_require__(19);
-
-/**
- * Creates an array of the own enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * for more details.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keys(new Foo);
- * // => ['a', 'b'] (iteration order is not guaranteed)
- *
- * _.keys('hi');
- * // => ['0', '1']
- */
-function keys(object) {
-  return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
-}
-
-module.exports = keys;
-
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isPrototype = __webpack_require__(29),
-    nativeKeys = __webpack_require__(183);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function baseKeys(object) {
-  if (!isPrototype(object)) {
-    return nativeKeys(object);
-  }
-  var result = [];
-  for (var key in Object(object)) {
-    if (hasOwnProperty.call(object, key) && key != 'constructor') {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-module.exports = baseKeys;
-
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var overArg = __webpack_require__(52);
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeKeys = overArg(Object.keys, Object);
-
-module.exports = nativeKeys;
-
 
 /***/ })
 /******/ ]);
