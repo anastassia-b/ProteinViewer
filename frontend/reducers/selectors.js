@@ -13,7 +13,6 @@ export const selectProteinInfo = (state, accession) => {
 
   const protein = state.proteins[accession];
   const sequence = protein.sequence;
-
   return {
     accession: accession,
     id: protein.id,

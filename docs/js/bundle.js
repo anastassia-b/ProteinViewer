@@ -24654,7 +24654,7 @@ var ProteinView = function (_React$Component) {
               null,
               "Sequence:"
             ),
-            _react2.default.createElement("textarea", { className: "sequence", defaultValue: protein.sequence })
+            _react2.default.createElement("textarea", { className: "sequence", value: protein.sequence, readOnly: true })
           )
         );
       }
@@ -24691,7 +24691,6 @@ var selectProteinInfo = exports.selectProteinInfo = function selectProteinInfo(s
 
   var protein = state.proteins[accession];
   var sequence = protein.sequence;
-
   return {
     accession: accession,
     id: protein.id,

@@ -27,7 +27,7 @@ class ProteinView extends React.Component {
             <p>Length: { protein.length }</p>
             <p>Mass: { protein.mass }</p>
             <p>Sequence:</p>
-            <textarea className="sequence" defaultValue={ protein.sequence } />
+            <textarea className="sequence" value={ protein.sequence } readOnly/>
           </div>
         </main>
       );
