@@ -73,5 +73,12 @@ main {
     p {
       padding-bottom: 10px;
     }
+
+    textarea {
+      width: 95%;
+      height: 200px;
+      resize: none;
+      padding: 10px;
+    }
   }
 }

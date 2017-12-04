@@ -5,7 +5,7 @@ del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption, tbody, tfoot, thead, tr, th, td, textarea, input {
   margin: 0;
   padding: 0;
   border: 0;
@@ -70,5 +70,10 @@ main {
   background-color: azure; }
   main .protein-view p {
     padding-bottom: 10px; }
+  main .protein-view textarea {
+    width: 95%;
+    height: 200px;
+    resize: none;
+    padding: 10px; }
 
 /*# sourceMappingURL=application.css.map */
