@@ -24357,15 +24357,24 @@ var _protein_view_container = __webpack_require__(175);
 
 var _protein_view_container2 = _interopRequireDefault(_protein_view_container);
 
+var _footer = __webpack_require__(184);
+
+var _footer2 = _interopRequireDefault(_footer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
 
   return _react2.default.createElement(
     'div',
-    { className: 'nav-main' },
-    _react2.default.createElement(_protein_list_container2.default, null),
-    _react2.default.createElement(_protein_view_container2.default, null)
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'nav-main' },
+      _react2.default.createElement(_protein_list_container2.default, null),
+      _react2.default.createElement(_protein_view_container2.default, null)
+    ),
+    _react2.default.createElement(_footer2.default, null)
   );
 };
 
@@ -24699,6 +24708,64 @@ var selectProteinInfo = exports.selectProteinInfo = function selectProteinInfo(s
     sequence: sequence.sequence
   };
 };
+
+/***/ }),
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+  return _react2.default.createElement(
+    "div",
+    { className: "footer" },
+    _react2.default.createElement(
+      "p",
+      null,
+      "Citation: The proteins API ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://academic.oup.com/nar/article/45/W1/W539/3106040" },
+        "(doi:10.1093/nar/gkx237)"
+      )
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      "Github: ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://github.com/anastassia-b/ProteinViewer" },
+        "ProteinViewer"
+      ),
+      " by ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://github.com/anastassia-b" },
+        "@anastassia-b"
+      )
+    )
+  );
+};
+
+exports.default = Footer;
 
 /***/ })
 /******/ ]);

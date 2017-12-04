@@ -19,10 +19,25 @@ html {
   body {
     font-family: sans-serif;
     font-size: 16px;
-    margin: 80px;
-    border: 2px solid $grey;
+    margin: 80px 80px 20px 80px;
     min-width: 450px
     // height: 100%;
+  }
+
+  .footer {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+
+    a {
+    font-weight: bold;
+    }
+
+    p {
+      padding-top: 5px;
+    }
   }
 }
 
@@ -30,6 +45,7 @@ html {
 .nav-main {
   display: flex;
   flex-direction: row;
+  border: 2px solid $grey;
   // height: 75vh;
 
   nav {
