@@ -24524,8 +24524,10 @@ var _selectors = __webpack_require__(177);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
+  var proteinAccession = state.ui.currentProtein;
+  var selectedInfo = (0, _selectors.selectProteinInfo)(state, proteinAccession);
   return {
-    protein: (0, _selectors.selectProtein)(state)
+    protein: selectedInfo
   };
 };
 
@@ -24580,7 +24582,7 @@ var ProteinView = function (_React$Component) {
     value: function render() {
       var protein = this.props.protein;
 
-      if (protein === undefined || protein.length === 0) {
+      if (protein === undefined) {
         return _react2.default.createElement(
           "main",
           null,
@@ -24596,13 +24598,6 @@ var ProteinView = function (_React$Component) {
           )
         );
       } else {
-        // definitely need to refactor/rethink this.
-        // bad way of doing this because diff api calls have dif keys.
-        var accession = protein[0];
-        var id = protein[1];
-        var sequence = protein[13];
-        debugger;
-        var newSeq = sequence.sequence;
 
         return _react2.default.createElement(
           "main",
@@ -24613,33 +24608,33 @@ var ProteinView = function (_React$Component) {
             _react2.default.createElement(
               "p",
               null,
-              "accession: ",
-              accession
+              "Accession: ",
+              protein.accession
             ),
             _react2.default.createElement(
               "p",
               null,
-              "id: ",
-              id
+              "Id: ",
+              protein.id
             ),
             _react2.default.createElement(
               "p",
               null,
-              "length: ",
-              sequence.length
+              "Length: ",
+              protein.length
             ),
             _react2.default.createElement(
               "p",
               null,
-              "mass: ",
-              sequence.mass
+              "Mass: ",
+              protein.mass
             ),
             _react2.default.createElement(
               "p",
               null,
-              "sequence: "
+              "Sequence:"
             ),
-            _react2.default.createElement("textarea", { className: "sequence", defaultValue: newSeq })
+            _react2.default.createElement("textarea", { className: "sequence", defaultValue: protein.sequence })
           )
         );
       }
@@ -24661,7 +24656,7 @@ exports.default = ProteinView;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.selectProtein = undefined;
+exports.selectProteinInfo = exports.selectProtein = undefined;
 
 var _values = __webpack_require__(178);
 
@@ -24676,6 +24671,23 @@ var selectProtein = exports.selectProtein = function selectProtein(state) {
   } else {
     return [];
   }
+};
+
+var selectProteinInfo = exports.selectProteinInfo = function selectProteinInfo(state, accession) {
+  if (!accession) {
+    return undefined;
+  }
+
+  var protein = state.proteins[accession];
+  var sequence = protein.sequence;
+
+  return {
+    accession: accession,
+    id: protein.id,
+    length: sequence.length,
+    mass: sequence.mass,
+    sequence: sequence.sequence
+  };
 };
 
 /***/ }),

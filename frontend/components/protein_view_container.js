@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
 import ProteinView from './protein_view';
 import { requestProtein } from '../actions/protein_actions';
-import { selectProtein } from '../reducers/selectors';
+import { selectProteinInfo } from '../reducers/selectors';
 
-const mapStateToProps = state => ({
-  protein: selectProtein(state)
-});
+const mapStateToProps = state => {
+  const proteinAccession = state.ui.currentProtein;
+  const selectedInfo = selectProteinInfo(state, proteinAccession);
+  return {
+    protein: selectedInfo
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   requestProtein: (id) => dispatch(requestProtein(id))

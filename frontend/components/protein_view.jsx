@@ -8,7 +8,7 @@ class ProteinView extends React.Component {
   render() {
     const protein = this.props.protein;
 
-    if (protein === undefined || protein.length === 0) {
+    if (protein === undefined) {
       return (
         <main>
           <div className="protein-view">
@@ -18,23 +18,16 @@ class ProteinView extends React.Component {
         </main>
       );
     } else {
-      // definitely need to refactor/rethink this.
-      // bad way of doing this because diff api calls have dif keys.
-      const accession = protein[0];
-      const id = protein[1];
-      const sequence = protein[13];
-      debugger;
-      const newSeq = sequence.sequence;
 
       return (
         <main>
           <div className="protein-view">
-            <p>accession: { accession }</p>
-            <p>id: { id }</p>
-            <p>length: { sequence.length }</p>
-            <p>mass: { sequence.mass }</p>
-            <p>sequence: </p>
-            <textarea className="sequence" defaultValue={ newSeq} />
+            <p>Accession: { protein.accession }</p>
+            <p>Id: { protein.id }</p>
+            <p>Length: { protein.length }</p>
+            <p>Mass: { protein.mass }</p>
+            <p>Sequence:</p>
+            <textarea className="sequence" defaultValue={ protein.sequence } />
           </div>
         </main>
       );
