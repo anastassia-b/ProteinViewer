@@ -30,13 +30,22 @@ html {
 .nav-main {
   display: flex;
   flex-direction: row;
-  height: 75vh;
+  // height: 75vh;
 
   nav {
     // display: flex;
     height: 100%;
     background-color: $yellow;
     // border: 1px solid midnightblue;
+
+    .search {
+      background-color: white;
+      padding: 30px;
+
+      input {
+        width: 100px;
+      }
+    }
 
     > ul {
       // background-color: white;

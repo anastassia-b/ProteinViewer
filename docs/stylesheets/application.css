@@ -43,11 +43,15 @@ html {
 
 .nav-main {
   display: flex;
-  flex-direction: row;
-  height: 75vh; }
+  flex-direction: row; }
   .nav-main nav {
     height: 100%;
     background-color: #FFDD4A; }
+    .nav-main nav .search {
+      background-color: white;
+      padding: 30px; }
+      .nav-main nav .search input {
+        width: 100px; }
     .nav-main nav > ul {
       width: 200px;
       overflow: scroll; }

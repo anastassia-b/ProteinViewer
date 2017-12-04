@@ -20,6 +20,9 @@ class ProteinList extends React.Component {
 
     return (
       <nav>
+        <div className="search">
+          <input placeholder="Search"></input>
+        </div>
         <ul>
           { proteinList }
         </ul>

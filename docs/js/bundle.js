@@ -24466,6 +24466,11 @@ var ProteinList = function (_React$Component) {
         'nav',
         null,
         _react2.default.createElement(
+          'div',
+          { className: 'search' },
+          _react2.default.createElement('input', { placeholder: 'Search' })
+        ),
+        _react2.default.createElement(
           'ul',
           null,
           proteinList
@@ -24489,7 +24494,7 @@ exports.default = ProteinList;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var defaults = ['P01096', 'P0AG67', 'P04637', 'P02549'];
+var defaults = ['P01096', 'P0AG67', 'P04637', 'P02549', 'P12345', 'P68250', 'P22629', 'P01034', 'P02647', 'P0AES6'];
 
 exports.default = defaults;
 
@@ -24587,11 +24592,7 @@ var ProteinView = function (_React$Component) {
               null,
               "fetching protein information..."
             ),
-            _react2.default.createElement(
-              "textarea",
-              { className: "sequence" },
-              "Protein Sequence"
-            )
+            _react2.default.createElement("textarea", { className: "sequence", placeholder: "fetching sequence..." })
           )
         );
       } else {
@@ -24638,11 +24639,7 @@ var ProteinView = function (_React$Component) {
               null,
               "sequence: "
             ),
-            _react2.default.createElement(
-              "textarea",
-              { className: "sequence" },
-              newSeq
-            )
+            _react2.default.createElement("textarea", { className: "sequence", defaultValue: newSeq })
           )
         );
       }

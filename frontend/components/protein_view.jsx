@@ -13,9 +13,7 @@ class ProteinView extends React.Component {
         <main>
           <div className="protein-view">
             <p>fetching protein information...</p>
-            <textarea className="sequence">
-              Protein Sequence
-            </textarea>
+            <textarea className="sequence" placeholder="fetching sequence..." />
           </div>
         </main>
       );
@@ -36,9 +34,7 @@ class ProteinView extends React.Component {
             <p>length: { sequence.length }</p>
             <p>mass: { sequence.mass }</p>
             <p>sequence: </p>
-            <textarea className="sequence">
-              { newSeq }
-            </textarea>
+            <textarea className="sequence" defaultValue={ newSeq} />
           </div>
         </main>
       );
