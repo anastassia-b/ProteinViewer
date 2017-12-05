@@ -7,13 +7,21 @@ class ProteinView extends React.Component {
 
   render() {
     const protein = this.props.protein;
+    const loading = this.props.loading;
+
+    if (loading) {
+      return (
+        <main>
+          <p>Loading...</p>
+        </main>
+      )
+    }
 
     if (protein === undefined) {
       return (
         <main>
           <div className="protein-view">
-            <p>fetching protein information...</p>
-            <textarea className="sequence" placeholder="fetching sequence..." />
+            <p>Select a protein!</p>
           </div>
         </main>
       );
