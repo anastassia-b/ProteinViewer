@@ -24506,6 +24506,10 @@ var _protein_list = __webpack_require__(175);
 
 var _protein_list2 = _interopRequireDefault(_protein_list);
 
+var _search_container = __webpack_require__(179);
+
+var _search_container2 = _interopRequireDefault(_search_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24520,16 +24524,15 @@ var ProteinList = function (_React$Component) {
   function ProteinList(props) {
     _classCallCheck(this, ProteinList);
 
-    var _this = _possibleConstructorReturn(this, (ProteinList.__proto__ || Object.getPrototypeOf(ProteinList)).call(this, props));
-
-    _this.handleClick = _this.handleClick.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (ProteinList.__proto__ || Object.getPrototypeOf(ProteinList)).call(this, props));
   }
 
   _createClass(ProteinList, [{
     key: 'handleClick',
     value: function handleClick(e) {
       var id = e.currentTarget.innerHTML;
+      // to use es7, es8 syntax (Array.prototype.includes())
+      // need to change presets to babel-env
       var exists = this.props.proteinIds.indexOf(id);
 
       if (exists === -1) {
@@ -24548,7 +24551,7 @@ var ProteinList = function (_React$Component) {
       var proteinList = _protein_list2.default.map(function (protein) {
         return _react2.default.createElement(
           'li',
-          { key: protein, className: 'protein-list', onClick: _this2.handleClick },
+          { key: protein, className: 'protein-list', onClick: _this2.handleClick.bind(_this2) },
           protein
         );
       });
@@ -24556,11 +24559,7 @@ var ProteinList = function (_React$Component) {
       return _react2.default.createElement(
         'nav',
         null,
-        _react2.default.createElement(
-          'div',
-          { className: 'search' },
-          _react2.default.createElement('input', { placeholder: 'Search' })
-        ),
+        _react2.default.createElement(_search_container2.default, null),
         _react2.default.createElement(
           'ul',
           null,
@@ -24806,6 +24805,132 @@ var Footer = function Footer() {
 };
 
 exports.default = Footer;
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(21);
+
+var _search = __webpack_require__(180);
+
+var _search2 = _interopRequireDefault(_search);
+
+var _selectors = __webpack_require__(60);
+
+var _protein_actions = __webpack_require__(12);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    proteins: state.proteins,
+    proteinIds: (0, _selectors.selectProteinIds)(state)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    requestProtein: function requestProtein(id) {
+      return dispatch((0, _protein_actions.requestProtein)(id));
+    },
+    receiveProtein: function receiveProtein(protein) {
+      return dispatch((0, _protein_actions.receiveProtein)(protein));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_search2.default);
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Search = function (_React$Component) {
+  _inherits(Search, _React$Component);
+
+  function Search(props) {
+    _classCallCheck(this, Search);
+
+    var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+
+    _this.state = {
+      id: ""
+    };
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      console.log(this.state);
+      return function (e) {
+        _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var id = this.state.id;
+      var exists = this.props.proteinIds.indexOf(id);
+
+      if (exists === -1) {
+        this.props.requestProtein(id);
+      } else {
+        console.log("Already in state!");
+        var protein = this.props.proteins[id];
+        this.props.receiveProtein(protein);
+      }
+      this.setState({ id: '' });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "form",
+        { className: "search", onSubmit: this.handleSubmit.bind(this) },
+        _react2.default.createElement("input", { onChange: this.update("id"), value: this.state.id, placeholder: "Search" })
+      );
+    }
+  }]);
+
+  return Search;
+}(_react2.default.Component);
+
+exports.default = Search;
 
 /***/ })
 /******/ ]);
