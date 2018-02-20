@@ -8,8 +8,9 @@ const mapStateToProps = state => {
   const selectedInfo = selectProteinInfo(state, proteinAccession);
   return {
     protein: selectedInfo,
-    loading: state.ui.loading
-  }
+    loading: state.ui.loading,
+    errors: state.ui.errors
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

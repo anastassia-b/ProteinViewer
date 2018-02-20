@@ -5,16 +5,33 @@ class ProteinView extends React.Component {
     super(props);
   }
 
+  renderLoading() {
+    return (
+      <main>
+        <p>Loading...</p>
+      </main>
+    );
+  }
+
+  renderErrors(errors) {
+    return (
+      <main>
+        <p>{errors}</p>
+      </main>
+    );
+  }
+
   render() {
     const protein = this.props.protein;
     const loading = this.props.loading;
+    const errors = this.props.errors;
 
     if (loading) {
-      return (
-        <main>
-          <p>Loading...</p>
-        </main>
-      )
+      return (this.renderLoading.bind(this)());
+    }
+
+    if (errors) {
+      return (this.renderErrors.bind(this)(errors));
     }
 
     if (protein === undefined) {
