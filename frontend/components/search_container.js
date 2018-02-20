@@ -6,7 +6,7 @@ import { requestProtein, receiveProtein } from '../actions/protein_actions';
 const mapStateToProps = state => ({
   proteins: state.proteins,
   proteinIds: selectProteinIds(state)
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   requestProtein: (id) => dispatch(requestProtein(id)),

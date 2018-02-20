@@ -35,6 +35,6 @@ export default class Search extends React.Component {
       <form className="search" onSubmit={this.handleSubmit.bind(this)}>
         <input onChange={this.update("id")} value={this.state.id} placeholder="Search"></input>
       </form>
-    )
+    );
   }
 }
