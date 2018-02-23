@@ -24981,6 +24981,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(19);
 
+var _main = __webpack_require__(159);
+
+var _main2 = _interopRequireDefault(_main);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Root = function Root(_ref) {
@@ -24988,7 +24992,7 @@ var Root = function Root(_ref) {
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
-    _react2.default.createElement(Main, null)
+    _react2.default.createElement(_main2.default, null)
   );
 };
 
